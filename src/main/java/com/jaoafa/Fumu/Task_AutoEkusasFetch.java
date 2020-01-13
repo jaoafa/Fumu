@@ -55,10 +55,11 @@ public class Task_AutoEkusasFetch extends TimerTask {
 				activity = null;
 			} else {
 				for (int i = 0; i < member.getActivities().size(); i++) {
-					System.out.println("changeActivity() | " + i + ": " + member.getActivities().get(i).getName());
-					if (member.getActivities().get(i).getName().equals("Custom Status")) {
+					System.out.println("changeActivity() | " + i + ": " + member.getActivities().get(i).getType().name()
+							+ " " + member.getActivities().get(i).getName());
+					/*if (member.getActivities().get(i).getName().equals("Custom Status")) {
 						continue;
-					}
+					}*/
 					activity = member.getActivities().get(i);
 				}
 			}
