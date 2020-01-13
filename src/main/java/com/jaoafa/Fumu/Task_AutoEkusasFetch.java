@@ -170,6 +170,13 @@ public class Task_AutoEkusasFetch extends TimerTask {
 		Member memberMe = jda.getGuildById(597378876556967936L).getMember(me);
 		String nickname = member.getNickname();
 		String nicknameMe = memberMe.getNickname();
+		if (nickname == null) {
+			jda.getGuildById(597378876556967936L).modifyNickname(memberMe, null).queue(v -> {
+				System.out.println("changeNickName() | modifyNickname() : Successful!");
+			}, failure -> {
+				System.out.println("changeNickName() | modifyNickname() : Failed / " + failure.getMessage());
+			});
+		}
 		if (!nickname.equals(nicknameMe)) {
 			System.out.println("changeNickName() | nickname : " + nickname + " != " + nicknameMe);
 			jda.getGuildById(597378876556967936L).modifyNickname(memberMe, nickname).queue(v -> {
