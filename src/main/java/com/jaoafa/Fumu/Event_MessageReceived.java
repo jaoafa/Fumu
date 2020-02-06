@@ -21,8 +21,13 @@ public class Event_MessageReceived {
 		Random random = new Random();
 		int num = random.nextInt(100);
 		System.out.println("onMessageReceivedEvent() | num = " + num);
+		if (num == 2 || num == 3) {
+			// 2%の確率 (0-99 -> 2, 3)
+			event.getChannel().sendMessage("なるほど").queue();
+			return;
+		}
 		if (num >= 2) {
-			return; // 2%の確率 (0-99)
+			return; // 2%の確率 (0-99 -> 0, 1)
 		}
 
 		event.getChannel().sendMessage("ふむ").queue();
